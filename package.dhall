@@ -1,0 +1,77 @@
+-- package.dhall
+-- Re-exports for convenient imports
+--
+-- Usage in a mori.dhall:
+--   let Mori = https://raw.githubusercontent.com/.../schema/package.dhall
+--   in Mori.Project::{ ... }
+
+-- Types
+let Language = ./types/Language.dhall
+let PackageType = ./types/PackageType.dhall
+let Lifecycle = ./types/Lifecycle.dhall
+let Visibility = ./types/Visibility.dhall
+let DependencyKind = ./types/DependencyKind.dhall
+let DependencySource = ./types/DependencySource.dhall
+let DocKind = ./types/DocKind.dhall
+let DocLocation = ./types/DocLocation.dhall
+let DocAudience = ./types/DocAudience.dhall
+let ApiType = ./types/ApiType.dhall
+let ApiDependencyRole = ./types/ApiDependencyRole.dhall
+let ApiUpdateStrategy = ./types/ApiUpdateStrategy.dhall
+let ConsumerBatching = ./types/ConsumerBatching.dhall
+let ConfigValueType = ./types/ConfigValueType.dhall
+let ConfigSourceHint = ./types/ConfigSourceHint.dhall
+let StandardScope = ./types/StandardScope.dhall
+
+-- Records
+let DocRef = ./records/DocRef.dhall
+let Repo = ./records/Repo.dhall
+let Dependency = ./records/Dependency.dhall
+let Package = ./records/Package.dhall
+let PackageBundle = ./records/PackageBundle.dhall
+let Runtime = ./records/Runtime.dhall
+let ConfigItem = ./records/ConfigItem.dhall
+let AgentHint = ./records/AgentHint.dhall
+let Api = ./records/Api.dhall
+let ApiDependency = ./records/ApiDependency.dhall
+let ApiUpdatePolicy = ./records/ApiUpdatePolicy.dhall
+let StandardProject = ./records/StandardProject.dhall
+
+-- Root type
+let Project = ./Project.dhall
+
+in  { -- Types
+      Language
+    , PackageType
+    , Lifecycle
+    , Visibility
+    , DependencyKind
+    , DependencySource
+    , DocKind
+    , DocLocation
+    , DocAudience
+    , ApiType
+    , ApiDependencyRole
+    , ApiUpdateStrategy
+    , ConsumerBatching
+    , ConfigValueType
+    , ConfigSourceHint
+    , StandardScope
+
+    -- Records
+    , DocRef
+    , Repo
+    , Dependency
+    , Package
+    , PackageBundle
+    , Runtime
+    , ConfigItem
+    , AgentHint
+    , Api
+    , ApiDependency
+    , ApiUpdatePolicy
+    , StandardProject
+
+    -- Root
+    , Project
+    }
