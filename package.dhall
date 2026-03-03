@@ -22,6 +22,7 @@ let ConsumerBatching = ./types/ConsumerBatching.dhall
 let ConfigValueType = ./types/ConfigValueType.dhall
 let ConfigSourceHint = ./types/ConfigSourceHint.dhall
 let StandardScope = ./types/StandardScope.dhall
+let Origin = ./types/Origin.dhall
 
 -- Records
 let DocRef = ./records/DocRef.dhall
@@ -57,6 +58,7 @@ in  { -- Types
     , ConfigValueType
     , ConfigSourceHint
     , StandardScope
+    , Origin
 
     -- Records
     , DocRef

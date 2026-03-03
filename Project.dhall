@@ -7,6 +7,7 @@
 let Language = ./types/Language.dhall
 let PackageType = ./types/PackageType.dhall
 let Lifecycle = ./types/Lifecycle.dhall
+let Origin = ./types/Origin.dhall
 
 let Repo = ./records/Repo.dhall
 let Package = ./records/Package.dhall
@@ -40,6 +41,9 @@ in  { project :
 
         , owners : List Text
           -- Team or individual owners
+
+        , origin : Origin
+          -- Whether this project is user-owned or third-party
         }
 
     , repos : List Repo

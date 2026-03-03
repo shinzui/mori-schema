@@ -11,6 +11,8 @@
 --   dependencies = [ "streamly", Dependency.WithAugmentation { name = "hasql", ... } ]
 
 let DocRef = ./DocRef.dhall
+let DependencyKind = ../types/DependencyKind.dhall
+let DependencySource = ../types/DependencySource.dhall
 
 in  < ByName : Text
       -- Simple case: just the dependency name, resolved via registry
@@ -24,5 +26,11 @@ in  < ByName : Text
 
         , localPathOverride : Optional Text
           -- Fallback: explicit path for unregistered dependencies (rare)
+
+        , kind : Optional DependencyKind
+          -- Classification: internal vs third-party
+
+        , source : Optional DependencySource
+          -- Where this dependency is sourced from
         }
     >
