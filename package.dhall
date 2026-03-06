@@ -38,8 +38,9 @@ let ApiDependency = ./records/ApiDependency.dhall
 let ApiUpdatePolicy = ./records/ApiUpdatePolicy.dhall
 let StandardProject = ./records/StandardProject.dhall
 
--- Root type
+-- Root types
 let Project = ./Project.dhall
+let UserConfig = ./UserConfig.dhall
 
 in  { -- Types
       Language
@@ -76,4 +77,5 @@ in  { -- Types
 
     -- Root
     , Project
+    , UserConfig
     }
