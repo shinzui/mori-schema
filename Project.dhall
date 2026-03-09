@@ -14,6 +14,8 @@ let Package = ./records/Package.dhall
 let PackageBundle = ./records/PackageBundle.dhall
 let Api = ./records/Api.dhall
 let AgentHint = ./records/AgentHint.dhall
+let Skill = ./records/Skill.dhall
+let Subagent = ./records/Subagent.dhall
 let DocRef = ./records/DocRef.dhall
 
 in  { project :
@@ -65,6 +67,12 @@ in  { project :
 
     , agents : List AgentHint
       -- Hints for AI coding agents
+
+    , skills : List Skill
+      -- Agent skills provided by this project
+
+    , subagents : List Subagent
+      -- Subagent definitions
 
     , standards : List Text
       -- Names of standard projects this project follows

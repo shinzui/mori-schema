@@ -23,6 +23,7 @@ let ConfigValueType = ./types/ConfigValueType.dhall
 let ConfigSourceHint = ./types/ConfigSourceHint.dhall
 let StandardScope = ./types/StandardScope.dhall
 let Origin = ./types/Origin.dhall
+let PermissionMode = ./types/PermissionMode.dhall
 
 -- Records
 let DocRef = ./records/DocRef.dhall
@@ -37,6 +38,9 @@ let Api = ./records/Api.dhall
 let ApiDependency = ./records/ApiDependency.dhall
 let ApiUpdatePolicy = ./records/ApiUpdatePolicy.dhall
 let StandardProject = ./records/StandardProject.dhall
+let SkillTool = ./records/SkillTool.dhall
+let Skill = ./records/Skill.dhall
+let Subagent = ./records/Subagent.dhall
 
 -- Root types
 let Project = ./Project.dhall
@@ -60,6 +64,7 @@ in  { -- Types
     , ConfigSourceHint
     , StandardScope
     , Origin
+    , PermissionMode
 
     -- Records
     , DocRef
@@ -74,6 +79,9 @@ in  { -- Types
     , ApiDependency
     , ApiUpdatePolicy
     , StandardProject
+    , SkillTool
+    , Skill
+    , Subagent
 
     -- Root
     , Project
