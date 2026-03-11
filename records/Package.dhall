@@ -2,6 +2,7 @@
 -- A buildable unit within a project
 
 let Language = ../types/Language.dhall
+let Lifecycle = ../types/Lifecycle.dhall
 let PackageType = ../types/PackageType.dhall
 let Visibility = ../types/Visibility.dhall
 let Dependency = ./Dependency.dhall
@@ -23,6 +24,9 @@ in  { name : Text
 
     , description : Optional Text
       -- Brief description
+
+    , lifecycle : Optional Lifecycle
+      -- Package lifecycle stage (inherits project lifecycle when None)
 
     , visibility : Visibility
       -- Access scope
