@@ -24,6 +24,7 @@ let ConfigSourceHint = ./types/ConfigSourceHint.dhall
 let StandardScope = ./types/StandardScope.dhall
 let Origin = ./types/Origin.dhall
 let PermissionMode = ./types/PermissionMode.dhall
+let RuntimeEnvironment = ./types/RuntimeEnvironment.dhall
 
 -- Records
 let DocRef = ./records/DocRef.dhall
@@ -65,6 +66,7 @@ in  { -- Types
     , StandardScope
     , Origin
     , PermissionMode
+    , RuntimeEnvironment
 
     -- Records
     , DocRef

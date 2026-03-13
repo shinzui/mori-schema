@@ -9,6 +9,7 @@ let Dependency = ./Dependency.dhall
 let DocRef = ./DocRef.dhall
 let ConfigItem = ./ConfigItem.dhall
 let Runtime = ./Runtime.dhall
+let RuntimeEnvironment = ../types/RuntimeEnvironment.dhall
 
 in  { name : Text
       -- Package name
@@ -33,6 +34,9 @@ in  { name : Text
 
     , runtime : Runtime
       -- Runtime characteristics
+
+    , runtimeEnvironment : Optional RuntimeEnvironment
+      -- Execution runtime (Node, Deno, Bun, JVM, etc.). None when not applicable.
 
     , dependencies : List Dependency
       -- Package dependencies (registry-first)
