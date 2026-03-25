@@ -10,6 +10,7 @@ let DocRef = ./DocRef.dhall
 let ConfigItem = ./ConfigItem.dhall
 let Runtime = ./Runtime.dhall
 let RuntimeEnvironment = ../types/RuntimeEnvironment.dhall
+let ApiSource = ./ApiSource.dhall
 
 in  { name : Text
       -- Package name
@@ -46,4 +47,7 @@ in  { name : Text
 
     , config : List ConfigItem
       -- Configuration requirements
+
+    , apiSource : Optional ApiSource
+      -- For Client-type packages: which API this package is generated from
     }

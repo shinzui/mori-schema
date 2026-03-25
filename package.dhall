@@ -37,6 +37,7 @@ let ConfigItem = ./records/ConfigItem.dhall
 let AgentHint = ./records/AgentHint.dhall
 let Api = ./records/Api.dhall
 let ApiDependency = ./records/ApiDependency.dhall
+let ApiSource = ./records/ApiSource.dhall
 let ApiUpdatePolicy = ./records/ApiUpdatePolicy.dhall
 let StandardProject = ./records/StandardProject.dhall
 let SkillTool = ./records/SkillTool.dhall
@@ -79,6 +80,7 @@ in  { -- Types
     , AgentHint
     , Api
     , ApiDependency
+    , ApiSource
     , ApiUpdatePolicy
     , StandardProject
     , SkillTool
