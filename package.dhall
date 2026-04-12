@@ -48,6 +48,13 @@ let Subagent = ./records/Subagent.dhall
 let Project = ./Project.dhall
 let UserConfig = ./UserConfig.dhall
 
+-- Automation types
+let EventSelector = ./automation/EventSelector.dhall
+let Automation = ./automation/Automation.dhall
+let Reaction = ./automation/Reaction.dhall
+let ReactionAction = ./automation/ReactionAction.dhall
+let ExecutionPolicy = ./automation/ExecutionPolicy.dhall
+
 in  { -- Types
       Language
     , PackageType
@@ -90,4 +97,11 @@ in  { -- Types
     -- Root
     , Project
     , UserConfig
+
+    -- Automation
+    , EventSelector
+    , Automation
+    , Reaction
+    , ReactionAction
+    , ExecutionPolicy
     }
