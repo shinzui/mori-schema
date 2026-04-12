@@ -23,6 +23,11 @@ let ScheduledAction =
           , headers : List { mapKey : Text, mapValue : Text }
           , bodyTemplate : Optional Text
           }
+      | Signal :
+          { signalType : Text
+          , targets : List Text
+          , payload : List { mapKey : Text, mapValue : Text }
+          }
       >
 
 in  < RunCommand :
@@ -46,5 +51,10 @@ in  < RunCommand :
     | Schedule :
         { delaySeconds : Integer
         , action : ScheduledAction
+        }
+    | Signal :
+        { signalType : Text
+        , targets : List Text
+        , payload : List { mapKey : Text, mapValue : Text }
         }
     >
