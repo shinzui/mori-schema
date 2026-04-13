@@ -17,6 +17,7 @@ let AgentHint = ./records/AgentHint.dhall
 let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let DocRef = ./records/DocRef.dhall
+let SeihouTemplate = ./records/SeihouTemplate.dhall
 
 in  { project :
         { name : Text
@@ -79,4 +80,8 @@ in  { project :
 
     , docs : List DocRef
       -- Project-level documentation
+
+    , templates : List SeihouTemplate
+      -- Seihou templates (scaffold modules) this project ships for
+      -- other consumers. See records/SeihouTemplate.dhall.
     }
