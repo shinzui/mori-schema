@@ -6,29 +6,50 @@
 -- registry needs to catalog, filter, and render. See seihou's own
 -- schema/Module.dhall for the authoritative module shape.
 
-  { name : Text
-    -- Seihou module name; matches [a-z][a-z0-9-]*
+let SeihouTemplateType =
+      { name : Text
+        -- Seihou module name; matches [a-z][a-z0-9-]*
 
-  , description : Optional Text
-    -- One-line description (mirrors the module's description field)
+      , description : Optional Text
+        -- One-line description (mirrors the module's description field)
 
-  , version : Optional Text
-    -- Semantic version pinned in module.dhall
+      , version : Optional Text
+        -- Semantic version pinned in module.dhall
 
-  , modulePath : Text
-    -- Path to the module directory, relative to the repo root.
-    -- "." for a single-module repository (module.dhall at root).
-    -- e.g. "nix-flake" for a multi-module registry entry.
+      , modulePath : Text
+        -- Path to the module directory, relative to the repo root.
+        -- "." for a single-module repository (module.dhall at root).
+        -- e.g. "nix-flake" for a multi-module registry entry.
 
-  , tags : List Text
-    -- Free-form tags for filtering, e.g. [ "haskell", "cabal" ]
+      , tags : List Text
+        -- Free-form tags for filtering, e.g. [ "haskell", "cabal" ]
 
-  , dependencies : List Text
-    -- Names of other seihou modules this template composes.
+      , dependencies : List Text
+        -- Names of other seihou modules this template composes.
 
-  , requiredVars : List Text
-    -- Names of variables the user must supply to instantiate the
-    -- template. Exposed for listing — the authoritative variable
-    -- schema (types, defaults, validations) lives in the module's
-    -- own module.dhall.
-  }
+      , requiredVars : List Text
+        -- Names of variables the user must supply to instantiate the
+        -- template. Exposed for listing — the authoritative variable
+        -- schema (types, defaults, validations) lives in the module's
+        -- own module.dhall.
+      }
+
+let SeihouTemplateInput = { name : Text, modulePath : Text }
+
+let seihouTemplateDefault =
+      { description = None Text
+      , version = None Text
+      , tags = [] : List Text
+      , dependencies = [] : List Text
+      , requiredVars = [] : List Text
+      }
+
+let mkSeihouTemplate =
+      \(input : SeihouTemplateInput) ->
+        ((seihouTemplateDefault // input) : SeihouTemplateType)
+
+in  { Type = SeihouTemplateType
+    , Input = SeihouTemplateInput
+    , default = seihouTemplateDefault
+    , mk = mkSeihouTemplate
+    }

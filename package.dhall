@@ -44,6 +44,7 @@ let SkillTool = ./records/SkillTool.dhall
 let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
+let ProjectIdentity = ./records/ProjectIdentity.dhall
 
 -- Root types
 let Project = ./Project.dhall
@@ -95,6 +96,7 @@ in  { -- Types
     , Skill
     , Subagent
     , SeihouTemplate
+    , ProjectIdentity
 
     -- Root
     , Project

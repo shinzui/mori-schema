@@ -7,9 +7,25 @@
 -- Example:
 --   { aliases = toMap { reg = "registry list", sh = "show --full" } }
 
-{ aliases : List { mapKey : Text, mapValue : Text }
-  -- Command aliases: short names that expand to full commands.
-  -- Use Dhall's `toMap` to define them ergonomically.
-  -- Only the first CLI argument is checked for alias expansion.
-  -- Built-in commands cannot be shadowed.
-}
+let UserConfigType =
+      { aliases : List { mapKey : Text, mapValue : Text }
+        -- Command aliases: short names that expand to full commands.
+        -- Use Dhall's `toMap` to define them ergonomically.
+        -- Only the first CLI argument is checked for alias expansion.
+        -- Built-in commands cannot be shadowed.
+      }
+
+let UserConfigInput = {}
+
+let userConfigDefault =
+      { aliases = [] : List { mapKey : Text, mapValue : Text } }
+
+let mkUserConfig =
+      \(input : UserConfigInput) ->
+        ((userConfigDefault // input) : UserConfigType)
+
+in  { Type = UserConfigType
+    , Input = UserConfigInput
+    , default = userConfigDefault
+    , mk = mkUserConfig
+    }

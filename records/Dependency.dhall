@@ -21,7 +21,7 @@ in  < ByName : Text
         { name : Text
           -- Dependency name for registry lookup
 
-        , extraDocs : List DocRef
+        , extraDocs : List DocRef.Type
           -- Additional docs specific to how THIS project uses the dependency
 
         , localPathOverride : Optional Text

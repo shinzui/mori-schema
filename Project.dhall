@@ -3,11 +3,10 @@
 --
 -- This is the main schema for Mori project identity.
 -- Every Mori-aware project has a mori.dhall that conforms to this type.
-
-let Language = ./types/Language.dhall
-let PackageType = ./types/PackageType.dhall
-let Lifecycle = ./types/Lifecycle.dhall
-let Origin = ./types/Origin.dhall
+--
+-- Exported as the { Input, Type, default, mk } bundle so consumers can
+-- write `Schema.Project::{ project = Schema.ProjectIdentity::{ … } }`
+-- and omit every list-valued field that is empty by default.
 
 let Repo = ./records/Repo.dhall
 let Package = ./records/Package.dhall
@@ -18,70 +17,69 @@ let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let DocRef = ./records/DocRef.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
+let ProjectIdentity = ./records/ProjectIdentity.dhall
 
-in  { project :
-        { name : Text
-          -- Project name (unique within namespace)
+let ProjectType =
+      { project : ProjectIdentity.Type
 
-        , namespace : Text
-          -- Organization namespace (e.g., "acme")
-          -- Used for registry identity: @namespace/name
+      , repos : List Repo.Type
+        -- Repository references
 
-        , type : PackageType
-          -- Primary project type
+      , packages : List Package.Type
+        -- Packages in this project
 
-        , description : Optional Text
-          -- Brief description
+      , bundles : List PackageBundle.Type
+        -- Package bundles (for wrapper projects)
 
-        , language : Language
-          -- Primary language
+      , dependencies : List Text
+        -- Project-level dependencies, resolved by name via the local registry.
+        -- For fine-grained control (augmentation, path overrides), declare
+        -- dependencies at the Package level using the Dependency union type.
 
-        , lifecycle : Lifecycle
-          -- Project lifecycle stage
+      , apis : List Api.Type
+        -- APIs defined by this project
 
-        , domains : List Text
-          -- High-level domain tags (e.g., "Billing", "Platform")
+      , agents : List AgentHint.Type
+        -- Hints for AI coding agents
 
-        , owners : List Text
-          -- Team or individual owners
+      , skills : List Skill.Type
+        -- Agent skills provided by this project
 
-        , origin : Origin
-          -- Whether this project is user-owned or third-party
-        }
+      , subagents : List Subagent.Type
+        -- Subagent definitions
 
-    , repos : List Repo
-      -- Repository references
+      , standards : List Text
+        -- Names of standard projects this project follows
 
-    , packages : List Package
-      -- Packages in this project
+      , docs : List DocRef.Type
+        -- Project-level documentation
 
-    , bundles : List PackageBundle
-      -- Package bundles (for wrapper projects)
+      , templates : List SeihouTemplate.Type
+        -- Seihou templates (scaffold modules) this project ships for
+        -- other consumers. See records/SeihouTemplate.dhall.
+      }
 
-    , dependencies : List Text
-      -- Project-level dependencies, resolved by name via the local registry.
-      -- For fine-grained control (augmentation, path overrides), declare
-      -- dependencies at the Package level using the Dependency union type.
+let ProjectInput = { project : ProjectIdentity.Type }
 
-    , apis : List Api
-      -- APIs defined by this project
+let projectDefault =
+      { repos = [] : List Repo.Type
+      , packages = [] : List Package.Type
+      , bundles = [] : List PackageBundle.Type
+      , dependencies = [] : List Text
+      , apis = [] : List Api.Type
+      , agents = [] : List AgentHint.Type
+      , skills = [] : List Skill.Type
+      , subagents = [] : List Subagent.Type
+      , standards = [] : List Text
+      , docs = [] : List DocRef.Type
+      , templates = [] : List SeihouTemplate.Type
+      }
 
-    , agents : List AgentHint
-      -- Hints for AI coding agents
+let mkProject =
+      \(input : ProjectInput) -> ((projectDefault // input) : ProjectType)
 
-    , skills : List Skill
-      -- Agent skills provided by this project
-
-    , subagents : List Subagent
-      -- Subagent definitions
-
-    , standards : List Text
-      -- Names of standard projects this project follows
-
-    , docs : List DocRef
-      -- Project-level documentation
-
-    , templates : List SeihouTemplate
-      -- Seihou templates (scaffold modules) this project ships for
-      -- other consumers. See records/SeihouTemplate.dhall.
+in  { Type = ProjectType
+    , Input = ProjectInput
+    , default = projectDefault
+    , mk = mkProject
     }

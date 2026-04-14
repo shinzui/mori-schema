@@ -5,15 +5,30 @@
 -- the owner-side view. ApiSource answers "where does my schema
 -- come from?" while Api answers "who are my consumers?"
 
-{ project : Text
-  -- Qualified project name (e.g., "tan/mls-service-v2")
-  -- Must appear in the project-level dependencies list
+let ApiSourceType =
+      { project : Text
+        -- Qualified project name (e.g., "tan/mls-service-v2")
+        -- Must appear in the project-level dependencies list
 
-, api : Optional Text
-  -- API name within the source project (matches Api.name)
-  -- None when the source project has a single API
+      , api : Optional Text
+        -- API name within the source project (matches Api.name)
+        -- None when the source project has a single API
 
-, specPath : Optional Text
-  -- Path to the spec file in the source project
-  -- Enables automation without resolving the source project
-}
+      , specPath : Optional Text
+        -- Path to the spec file in the source project
+        -- Enables automation without resolving the source project
+      }
+
+let ApiSourceInput = { project : Text }
+
+let apiSourceDefault = { api = None Text, specPath = None Text }
+
+let mkApiSource =
+      \(input : ApiSourceInput) ->
+        ((apiSourceDefault // input) : ApiSourceType)
+
+in  { Type = ApiSourceType
+    , Input = ApiSourceInput
+    , default = apiSourceDefault
+    , mk = mkApiSource
+    }
