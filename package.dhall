@@ -52,9 +52,18 @@ let UserConfig = ./UserConfig.dhall
 
 -- Automation types
 let EventSelector = ./automation/EventSelector.dhall
+let ChangesetSelector = ./automation/ChangesetSelector.dhall
+let RefSelector = ./automation/RefSelector.dhall
+let SignalSelector = ./automation/SignalSelector.dhall
 let Automation = ./automation/Automation.dhall
 let Reaction = ./automation/Reaction.dhall
 let ReactionAction = ./automation/ReactionAction.dhall
+let ScheduledAction = ./automation/ScheduledAction.dhall
+let RunCommandAction = ./automation/RunCommandAction.dhall
+let EmitEventAction = ./automation/EmitEventAction.dhall
+let NotifyAction = ./automation/NotifyAction.dhall
+let SignalAction = ./automation/SignalAction.dhall
+let ScheduleAction = ./automation/ScheduleAction.dhall
 let ExecutionPolicy = ./automation/ExecutionPolicy.dhall
 
 in  { -- Types
@@ -104,8 +113,17 @@ in  { -- Types
 
     -- Automation
     , EventSelector
+    , ChangesetSelector
+    , RefSelector
+    , SignalSelector
     , Automation
     , Reaction
     , ReactionAction
+    , ScheduledAction
+    , RunCommandAction
+    , EmitEventAction
+    , NotifyAction
+    , SignalAction
+    , ScheduleAction
     , ExecutionPolicy
     }
