@@ -1,40 +1,14 @@
 -- EventSelector.dhall
--- Union type for event selectors
+-- Union type for event selectors. Each variant's payload lives in a
+-- dedicated mk-form bundle.
 
-< ChangesetSelector :
-    { name : Text
-      -- Unique selector name for referencing in reactions
+let ChangesetSelector = ./ChangesetSelector.dhall
 
-    , paths : List Text
-      -- Glob patterns for touched file paths
+let RefSelector = ./RefSelector.dhall
 
-    , branches : List Text
-      -- Branch name patterns (empty = match all)
+let SignalSelector = ./SignalSelector.dhall
 
-    , messagePatterns : List Text
-      -- Commit message patterns (empty = match all)
-
-    , trailerPatterns : List { mapKey : Text, mapValue : Text }
-      -- Git trailer key/value glob patterns (empty = match all)
-    }
-| RefSelector :
-    { name : Text
-      -- Unique selector name for referencing in reactions
-
-    , refPatterns : List Text
-      -- Ref name patterns (e.g., "main", "release/*")
-
-    , kinds : List Text
-      -- Ref kinds to match: "branch", "tag" (empty = match all)
-    }
-| SignalSelector :
-    { name : Text
-      -- Unique selector name for referencing in reactions
-
-    , signalTypes : List Text
-      -- Signal types to match (empty = match all)
-
-    , sourceProjects : List Text
-      -- Source project names to match (empty = match all)
-    }
->
+in  < ChangesetSelector : ChangesetSelector.Type
+    | RefSelector : RefSelector.Type
+    | SignalSelector : SignalSelector.Type
+    >
