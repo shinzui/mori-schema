@@ -42,6 +42,11 @@ let CookbookEntryType =
 
       , description : Optional Text
         -- Brief summary of the cookbook's purpose
+
+      , tags : List Text
+        -- Freeform tags for this cookbook entry, complementing the closed
+        -- Topic union. Useful for one-off labels that don't warrant adding
+        -- a new Topic constructor.
       }
 
 let CookbookEntryInput =
@@ -55,7 +60,8 @@ let CookbookEntryInput =
       , location : DocLocation
       }
 
-let cookbookEntryDefault = { description = None Text }
+let cookbookEntryDefault =
+      { description = None Text, tags = [] : List Text }
 
 let mkCookbookEntry =
       \(input : CookbookEntryInput) ->
