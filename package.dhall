@@ -12,6 +12,7 @@ let Lifecycle = ./types/Lifecycle.dhall
 let Visibility = ./types/Visibility.dhall
 let DependencyKind = ./types/DependencyKind.dhall
 let DependencySource = ./types/DependencySource.dhall
+let DependencyScope = ./types/DependencyScope.dhall
 let DocKind = ./types/DocKind.dhall
 let DocLocation = ./types/DocLocation.dhall
 let DocAudience = ./types/DocAudience.dhall
@@ -73,6 +74,7 @@ in  { -- Types
     , Visibility
     , DependencyKind
     , DependencySource
+    , DependencyScope
     , DocKind
     , DocLocation
     , DocAudience

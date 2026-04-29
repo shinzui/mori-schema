@@ -13,6 +13,7 @@
 let DocRef = ./DocRef.dhall
 let DependencyKind = ../types/DependencyKind.dhall
 let DependencySource = ../types/DependencySource.dhall
+let DependencyScope = ../types/DependencyScope.dhall
 
 in  < ByName : Text
       -- Simple case: just the dependency name, resolved via registry
@@ -32,5 +33,9 @@ in  < ByName : Text
 
         , source : Optional DependencySource
           -- Where this dependency is sourced from
+
+        , scope : Optional DependencyScope
+          -- When this dependency is needed: Regular (default, runtime),
+          -- Dev (tooling), Test (test framework only), or Build (build-time only)
         }
     >
