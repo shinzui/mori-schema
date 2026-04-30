@@ -26,6 +26,7 @@ let StandardScope = ./types/StandardScope.dhall
 let Origin = ./types/Origin.dhall
 let PermissionMode = ./types/PermissionMode.dhall
 let RuntimeEnvironment = ./types/RuntimeEnvironment.dhall
+let MoriArtifactKind = ./types/MoriArtifactKind.dhall
 
 -- Records
 let DocRef = ./records/DocRef.dhall
@@ -46,6 +47,7 @@ let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
 let ProjectIdentity = ./records/ProjectIdentity.dhall
+let MoriRef = ./records/MoriRef.dhall
 
 -- Root types
 let Project = ./Project.dhall
@@ -88,6 +90,7 @@ in  { -- Types
     , Origin
     , PermissionMode
     , RuntimeEnvironment
+    , MoriArtifactKind
 
     -- Records
     , DocRef
@@ -108,6 +111,7 @@ in  { -- Types
     , Subagent
     , SeihouTemplate
     , ProjectIdentity
+    , MoriRef
 
     -- Root
     , Project
