@@ -50,5 +50,13 @@ in  Schema.Project::{
         , description = Some
             "Checklist extension schema (ChecklistCatalog, Checklist, ChecklistItem, StepKind, Category)"
         }
+      , Schema.Package::{
+        , name = "mori-schema-upstream-issues"
+        , type = Schema.PackageType.Library
+        , language = Schema.Language.Dhall
+        , path = Some "extensions/upstream-issues"
+        , description = Some
+            "Upstream-issues extension schema (UpstreamIssuesCatalog, UpstreamIssue, IssueStatus)"
+        }
       ]
     }
