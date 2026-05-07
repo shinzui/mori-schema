@@ -19,6 +19,7 @@ let RecommendationType =
       , level : AdoptionLevel
       , reason : Optional Text
       , alternatives : List Text
+      , project : Optional Text
       }
 
 let RecommendationInput =
@@ -29,7 +30,10 @@ let RecommendationInput =
       }
 
 let recommendationDefault =
-      { reason = None Text, alternatives = [] : List Text }
+      { reason = None Text
+      , alternatives = [] : List Text
+      , project = None Text
+      }
 
 let mkRecommendation =
       \(input : RecommendationInput) ->
