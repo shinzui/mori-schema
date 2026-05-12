@@ -68,6 +68,9 @@ let NotifyAction = ./automation/NotifyAction.dhall
 let SignalAction = ./automation/SignalAction.dhall
 let ScheduleAction = ./automation/ScheduleAction.dhall
 let ExecutionPolicy = ./automation/ExecutionPolicy.dhall
+let Schedule = ./automation/Schedule.dhall
+let IdempotencyCheck = ./automation/IdempotencyCheck.dhall
+let SkipOnExit = ./automation/SkipOnExit.dhall
 
 in  { -- Types
       Language
@@ -132,4 +135,7 @@ in  { -- Types
     , SignalAction
     , ScheduleAction
     , ExecutionPolicy
+    , Schedule
+    , IdempotencyCheck
+    , SkipOnExit
     }
