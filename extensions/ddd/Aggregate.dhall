@@ -2,6 +2,8 @@
 -- An aggregate: a cluster of entities with a consistency boundary
 -- (tactical design).
 
+let AggregateSize = ./AggregateSize.dhall
+
 let AggregateType =
       { key : Text
       , name : Text
@@ -10,6 +12,8 @@ let AggregateType =
       , commands : List Text
       , events : List Text
       , invariants : List Text
+      , size : Optional AggregateSize
+      , throughputPerDay : Optional Natural
       }
 
 let AggregateInput = { key : Text, name : Text }
@@ -20,6 +24,8 @@ let aggregateDefault =
       , commands = [] : List Text
       , events = [] : List Text
       , invariants = [] : List Text
+      , size = None AggregateSize
+      , throughputPerDay = None Natural
       }
 
 let mkAggregate =

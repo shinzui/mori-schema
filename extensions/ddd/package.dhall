@@ -21,6 +21,10 @@ let FlowStep = ./FlowStep.dhall
 
 let GlossaryTerm = ./GlossaryTerm.dhall
 
+let Verification = ./Verification.dhall
+
+let Collaborator = ./Collaborator.dhall
+
 let SubdomainKind = ./SubdomainKind.dhall
 
 let RelationshipPattern = ./RelationshipPattern.dhall
@@ -28,6 +32,10 @@ let RelationshipPattern = ./RelationshipPattern.dhall
 let TeamRelationship = ./TeamRelationship.dhall
 
 let MessageKind = ./MessageKind.dhall
+
+let WardleyStage = ./WardleyStage.dhall
+
+let AggregateSize = ./AggregateSize.dhall
 
 in  { DddModel
     , Subdomain
@@ -37,8 +45,12 @@ in  { DddModel
     , MessageFlow
     , FlowStep
     , GlossaryTerm
+    , Verification
+    , Collaborator
     , SubdomainKind
     , RelationshipPattern
     , TeamRelationship
     , MessageKind
+    , WardleyStage
+    , AggregateSize
     }

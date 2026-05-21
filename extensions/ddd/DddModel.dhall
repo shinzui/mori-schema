@@ -15,6 +15,10 @@ let MessageFlow = ./MessageFlow.dhall
 
 let GlossaryTerm = ./GlossaryTerm.dhall
 
+let Verification = ./Verification.dhall
+
+let Collaborator = ./Collaborator.dhall
+
 let DddModelType =
       { domain : Optional Text
       , subdomains : List Subdomain.Type
@@ -23,6 +27,8 @@ let DddModelType =
       , mappings : List ContextMapping.Type
       , flows : List MessageFlow.Type
       , glossary : List GlossaryTerm.Type
+      , verification : Optional Verification.Type
+      , collaborators : List Collaborator.Type
       }
 
 let DddModelInput = {}
@@ -35,6 +41,8 @@ let dddModelDefault =
       , mappings = [] : List ContextMapping.Type
       , flows = [] : List MessageFlow.Type
       , glossary = [] : List GlossaryTerm.Type
+      , verification = None Verification.Type
+      , collaborators = [] : List Collaborator.Type
       }
 
 let mkDddModel =
