@@ -21,6 +21,12 @@ let AutomationType =
 
       , execution : ExecutionPolicy.Type
         -- Controls how actions are executed
+
+      , queued : Bool
+        -- When True, every reaction this automation triggers (immediate and
+        -- scheduled) is placed on the `queued_reactions` FIFO pgmq queue and
+        -- executed in strict trigger order, one at a time, grouped by
+        -- "<repoId>:<automationName>". Defaults to False (unchanged behavior).
       }
 
 let AutomationInput = {}
@@ -29,6 +35,7 @@ let automationDefault =
       { events = [] : List EventSelector
       , reactions = [] : List Reaction.Type
       , execution = ExecutionPolicy.default
+      , queued = False
       }
 
 let mkAutomation =
