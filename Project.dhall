@@ -17,6 +17,7 @@ let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let DocRef = ./records/DocRef.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
+let OkfBundle = ./records/OkfBundle.dhall
 let ProjectIdentity = ./records/ProjectIdentity.dhall
 
 let ProjectType =
@@ -57,6 +58,10 @@ let ProjectType =
       , templates : List SeihouTemplate.Type
         -- Seihou templates (scaffold modules) this project ships for
         -- other consumers. See records/SeihouTemplate.dhall.
+
+      , okfBundles : List OkfBundle.Type
+        -- OKF knowledge bundles owned by this project. Distinct from
+        -- `bundles` (PackageBundle): these are Markdown knowledge bundles.
       }
 
 let ProjectInput = { project : ProjectIdentity.Type }
@@ -73,6 +78,7 @@ let projectDefault =
       , standards = [] : List Text
       , docs = [] : List DocRef.Type
       , templates = [] : List SeihouTemplate.Type
+      , okfBundles = [] : List OkfBundle.Type
       }
 
 let mkProject =

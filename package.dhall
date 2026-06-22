@@ -46,6 +46,7 @@ let SkillTool = ./records/SkillTool.dhall
 let Skill = ./records/Skill.dhall
 let Subagent = ./records/Subagent.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
+let OkfBundle = ./records/OkfBundle.dhall
 let ProjectIdentity = ./records/ProjectIdentity.dhall
 let MoriRef = ./records/MoriRef.dhall
 
@@ -113,6 +114,7 @@ in  { -- Types
     , Skill
     , Subagent
     , SeihouTemplate
+    , OkfBundle
     , ProjectIdentity
     , MoriRef
 
