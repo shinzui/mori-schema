@@ -7,6 +7,8 @@
 
 let StepKind = ./StepKind.dhall
 
+let DocLocation = ../../types/DocLocation.dhall
+
 let ChecklistItemType =
       { key : Text
         -- Unique identifier within this checklist (stable across edits)
@@ -35,6 +37,14 @@ let ChecklistItemType =
 
       , tags : List Text
         -- Freeform labels for filtering.
+
+      , docs : List DocLocation
+        -- Zero or more documentation references for this step. Unlike the
+        -- checklist-level `sourceDoc` (one companion runbook for the whole
+        -- procedure), these are step-specific: a guide, cookbook, or
+        -- cross-project reference for this one action. Use
+        -- `DocLocation.Canonical "mori://..."` to point at a registered
+        -- mori doc; `mori validate --check-refs` resolves those.
       }
 
 let ChecklistItemInput =
@@ -46,6 +56,7 @@ let checklistItemDefault =
       , successCriteria = None Text
       , preconditions = [] : List Text
       , tags = [] : List Text
+      , docs = [] : List DocLocation
       }
 
 let mkChecklistItem =
