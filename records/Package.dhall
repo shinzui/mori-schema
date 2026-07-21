@@ -5,6 +5,7 @@ let Language = ../types/Language.dhall
 let Lifecycle = ../types/Lifecycle.dhall
 let PackageType = ../types/PackageType.dhall
 let Visibility = ../types/Visibility.dhall
+let Deprecation = ./Deprecation.dhall
 let Dependency = ./Dependency.dhall
 let DocRef = ./DocRef.dhall
 let ConfigItem = ./ConfigItem.dhall
@@ -30,6 +31,9 @@ let PackageRecordType =
 
       , lifecycle : Optional Lifecycle
         -- Package lifecycle stage (inherits project lifecycle when None)
+
+      , deprecation : Optional Deprecation.Type
+        -- Package-specific replacement and migration guidance when deprecated
 
       , visibility : Visibility
         -- Access scope
@@ -60,6 +64,7 @@ let packageRecordDefault =
       { path = None Text
       , description = None Text
       , lifecycle = None Lifecycle
+      , deprecation = None Deprecation.Type
       , visibility = Visibility.Public
       , runtime = Runtime.default
       , runtimeEnvironment = None RuntimeEnvironment

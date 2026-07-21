@@ -32,6 +32,7 @@ let MoriArtifactKind = ./types/MoriArtifactKind.dhall
 let DocRef = ./records/DocRef.dhall
 let Repo = ./records/Repo.dhall
 let Dependency = ./records/Dependency.dhall
+let Deprecation = ./records/Deprecation.dhall
 let Package = ./records/Package.dhall
 let PackageBundle = ./records/PackageBundle.dhall
 let Runtime = ./records/Runtime.dhall
@@ -100,6 +101,7 @@ in  { -- Types
     , DocRef
     , Repo
     , Dependency
+    , Deprecation
     , Package
     , PackageBundle
     , Runtime

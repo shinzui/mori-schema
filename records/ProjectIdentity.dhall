@@ -9,6 +9,7 @@ let Language = ../types/Language.dhall
 let PackageType = ../types/PackageType.dhall
 let Lifecycle = ../types/Lifecycle.dhall
 let Origin = ../types/Origin.dhall
+let Deprecation = ./Deprecation.dhall
 
 let ProjectIdentityType =
       { name : Text
@@ -30,6 +31,9 @@ let ProjectIdentityType =
       , lifecycle : Lifecycle
         -- Project lifecycle stage
 
+      , deprecation : Optional Deprecation.Type
+        -- Replacement and migration guidance when deprecated
+
       , domains : List Text
         -- High-level domain tags (e.g., "Billing", "Platform")
 
@@ -50,6 +54,7 @@ let ProjectIdentityInput =
 
 let projectIdentityDefault =
       { description = None Text
+      , deprecation = None Deprecation.Type
       , domains = [] : List Text
       , owners = [] : List Text
       , origin = Origin.Own
