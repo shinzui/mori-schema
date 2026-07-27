@@ -9,6 +9,14 @@
 --
 -- The DepRef shorthand <namespace>/<name>:<package> remains a
 -- separate grammar and is not parsed by this type.
+--
+-- Every kind the mori CLI can resolve has an arm in MoriArtifactKind,
+-- so a typed MoriRef can name any of them. One limitation remains:
+-- this record has no sub-key field, so the three nested forms — an OKF
+-- concept (okf/<bundle>/concepts/<id>), a checklist step
+-- (checklists/<key>/steps/<step>) and a DDD flow step
+-- (ddd/flows/<key>/steps/<n>) — cannot be expressed as a typed value.
+-- They travel as canonical Text in a DocLocation.Canonical arm.
 
 let MoriArtifactKind = ../types/MoriArtifactKind.dhall
 
