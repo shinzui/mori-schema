@@ -7,71 +7,135 @@
 
 -- Types
 let Language = ./types/Language.dhall
+
 let PackageType = ./types/PackageType.dhall
+
 let Lifecycle = ./types/Lifecycle.dhall
+
 let Visibility = ./types/Visibility.dhall
+
 let DependencyKind = ./types/DependencyKind.dhall
+
 let DependencySource = ./types/DependencySource.dhall
+
 let DependencyScope = ./types/DependencyScope.dhall
+
 let DocKind = ./types/DocKind.dhall
+
 let DocLocation = ./types/DocLocation.dhall
+
 let DocAudience = ./types/DocAudience.dhall
+
 let ApiType = ./types/ApiType.dhall
+
 let ApiDependencyRole = ./types/ApiDependencyRole.dhall
+
 let ApiUpdateStrategy = ./types/ApiUpdateStrategy.dhall
+
 let ConsumerBatching = ./types/ConsumerBatching.dhall
+
 let ConfigValueType = ./types/ConfigValueType.dhall
+
 let ConfigSourceHint = ./types/ConfigSourceHint.dhall
+
 let StandardScope = ./types/StandardScope.dhall
+
 let Origin = ./types/Origin.dhall
+
 let PermissionMode = ./types/PermissionMode.dhall
+
 let RuntimeEnvironment = ./types/RuntimeEnvironment.dhall
+
 let MoriArtifactKind = ./types/MoriArtifactKind.dhall
 
--- Records
 let DocRef = ./records/DocRef.dhall
+
 let Repo = ./records/Repo.dhall
+
 let Dependency = ./records/Dependency.dhall
+
 let Deprecation = ./records/Deprecation.dhall
+
 let Package = ./records/Package.dhall
+
 let PackageBundle = ./records/PackageBundle.dhall
+
 let Runtime = ./records/Runtime.dhall
+
 let ConfigItem = ./records/ConfigItem.dhall
+
 let AgentHint = ./records/AgentHint.dhall
+
 let Api = ./records/Api.dhall
+
 let ApiDependency = ./records/ApiDependency.dhall
+
 let ApiSource = ./records/ApiSource.dhall
+
 let ApiUpdatePolicy = ./records/ApiUpdatePolicy.dhall
+
 let StandardProject = ./records/StandardProject.dhall
+
 let SkillTool = ./records/SkillTool.dhall
+
 let Skill = ./records/Skill.dhall
+
 let Subagent = ./records/Subagent.dhall
+
 let SeihouTemplate = ./records/SeihouTemplate.dhall
+
 let OkfBundle = ./records/OkfBundle.dhall
+
 let ProjectIdentity = ./records/ProjectIdentity.dhall
+
 let MoriRef = ./records/MoriRef.dhall
 
--- Root types
 let Project = ./Project.dhall
+
 let UserConfig = ./UserConfig.dhall
 
--- Automation types
 let EventSelector = ./automation/EventSelector.dhall
+
 let ChangesetSelector = ./automation/ChangesetSelector.dhall
+
 let RefSelector = ./automation/RefSelector.dhall
+
 let SignalSelector = ./automation/SignalSelector.dhall
+
+let ProjectSelector = ./automation/ProjectSelector.dhall
+
+let ProjectSignalAggregate = ./automation/ProjectSignalAggregate.dhall
+
+let ProjectSignalFamily = ./automation/ProjectSignalFamily.dhall
+
+let ProjectSignalAction = ./automation/ProjectSignalAction.dhall
+
+let ProjectArtifactKind = ./automation/ProjectArtifactKind.dhall
+
 let Automation = ./automation/Automation.dhall
+
 let Reaction = ./automation/Reaction.dhall
+
 let ReactionAction = ./automation/ReactionAction.dhall
+
 let ScheduledAction = ./automation/ScheduledAction.dhall
+
 let RunCommandAction = ./automation/RunCommandAction.dhall
+
 let EmitEventAction = ./automation/EmitEventAction.dhall
+
 let NotifyAction = ./automation/NotifyAction.dhall
+
 let SignalAction = ./automation/SignalAction.dhall
+
 let ScheduleAction = ./automation/ScheduleAction.dhall
+
 let ExecutionPolicy = ./automation/ExecutionPolicy.dhall
+
 let Schedule = ./automation/Schedule.dhall
+
 let IdempotencyCheck = ./automation/IdempotencyCheck.dhall
+
 let SkipOnExit = ./automation/SkipOnExit.dhall
 
 in  { -- Types
@@ -96,8 +160,7 @@ in  { -- Types
     , PermissionMode
     , RuntimeEnvironment
     , MoriArtifactKind
-
-    -- Records
+      -- Records
     , DocRef
     , Repo
     , Dependency
@@ -119,16 +182,19 @@ in  { -- Types
     , OkfBundle
     , ProjectIdentity
     , MoriRef
-
-    -- Root
+      -- Root
     , Project
     , UserConfig
-
-    -- Automation
+      -- Automation
     , EventSelector
     , ChangesetSelector
     , RefSelector
     , SignalSelector
+    , ProjectSelector
+    , ProjectSignalAggregate
+    , ProjectSignalFamily
+    , ProjectSignalAction
+    , ProjectArtifactKind
     , Automation
     , Reaction
     , ReactionAction

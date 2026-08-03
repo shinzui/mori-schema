@@ -1,0 +1,25 @@
+-- Stable semantic families shared by Project root and artifact events.
+< Lifecycle
+| Metadata
+| Description
+| Repository
+| Host
+| Package
+| Dependency
+| Doc
+| OkfBundle
+| OkfConcept
+| OkfEdge
+| AgentPlan
+| Cookbook
+| Checklist
+| UpstreamIssue
+| TechRadar
+| DddCollaborator
+| DddSubdomain
+| DddContext
+| DddAggregate
+| DddMapping
+| DddFlow
+| DddGlossary
+>
