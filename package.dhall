@@ -134,6 +134,10 @@ let NotifyAction = ./automation/NotifyAction.dhall
 
 let SignalAction = ./automation/SignalAction.dhall
 
+let DecisionAction = ./automation/DecisionAction.dhall
+
+let DecisionRoute = ./automation/DecisionRoute.dhall
+
 let ScheduleAction = ./automation/ScheduleAction.dhall
 
 let ExecutionPolicy = ./automation/ExecutionPolicy.dhall
@@ -212,6 +216,8 @@ in  { -- Types
     , EmitEventAction
     , NotifyAction
     , SignalAction
+    , DecisionAction
+    , DecisionRoute
     , ScheduleAction
     , ExecutionPolicy
     , Schedule
