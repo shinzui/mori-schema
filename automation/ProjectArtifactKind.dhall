@@ -1,6 +1,14 @@
 -- Typed ProjectArtifact kinds emitted by the functional event topology.
 < PackageArtifact
 | DependencyArtifact
+| ProjectDependencyArtifact
+| BundleArtifact
+| SkillArtifact
+| SubagentArtifact
+| ApiArtifact
+| SeihouTemplateArtifact
+| RepositoryRefArtifact
+| ShippedExtensionCatalogArtifact
 | DocArtifact
 | OkfBundleArtifact
 | OkfConceptArtifact

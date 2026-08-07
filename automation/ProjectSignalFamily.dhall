@@ -6,6 +6,12 @@
 | Host
 | Package
 | Dependency
+| Bundle
+| Skill
+| Subagent
+| Api
+| SeihouTemplate
+| ExtensionCatalog
 | Doc
 | OkfBundle
 | OkfConcept
