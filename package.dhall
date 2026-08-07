@@ -102,6 +102,12 @@ let RefSelector = ./automation/RefSelector.dhall
 
 let SignalSelector = ./automation/SignalSelector.dhall
 
+let SignalPayloadPredicate = ./automation/SignalPayloadPredicate.dhall
+
+let SignalConsent = ./automation/SignalConsent.dhall
+
+let SignalBounds = ./automation/SignalBounds.dhall
+
 let ProjectSelector = ./automation/ProjectSelector.dhall
 
 let ProjectSignalAggregate = ./automation/ProjectSignalAggregate.dhall
@@ -190,6 +196,9 @@ in  { -- Types
     , ChangesetSelector
     , RefSelector
     , SignalSelector
+    , SignalPayloadPredicate
+    , SignalConsent
+    , SignalBounds
     , ProjectSelector
     , ProjectSignalAggregate
     , ProjectSignalFamily

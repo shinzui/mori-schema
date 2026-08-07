@@ -3,7 +3,9 @@
 --
 -- Exports { Input, Type, default, mk } so consumers can write
 -- `Schema.EventSelector.SignalSelector Schema.SignalSelector::{ name = "..." }`
--- and omit signalTypes/sourceProjects.
+-- and omit signalTypes/sourceProjects/payloadPredicates.
+
+let SignalPayloadPredicate = ./SignalPayloadPredicate.dhall
 
 let SignalSelectorType =
       { name : Text
@@ -14,12 +16,18 @@ let SignalSelectorType =
 
       , sourceProjects : List Text
         -- Source project names to match (empty = match all)
+
+      , payloadPredicates : List SignalPayloadPredicate.Type
+        -- Payload tests that must all match (empty = match all)
       }
 
 let SignalSelectorInput = { name : Text }
 
 let signalSelectorDefault =
-      { signalTypes = [] : List Text, sourceProjects = [] : List Text }
+      { signalTypes = [] : List Text
+      , sourceProjects = [] : List Text
+      , payloadPredicates = [] : List SignalPayloadPredicate.Type
+      }
 
 let mkSignalSelector =
       \(input : SignalSelectorInput) ->
