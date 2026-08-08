@@ -1,6 +1,6 @@
 let Schema =
-      https://raw.githubusercontent.com/shinzui/mori-schema/02a8a876f6f7074510eb03071116d57f5529378b/package.dhall
-        sha256:a19f5dd9181db28ba7a6a1b77b5ab8715e81aba3e2a8f296f40973003a0b4412
+      https://raw.githubusercontent.com/shinzui/mori-schema/027403783777cbce0e87eb660a0b3d8119ebe8d2/package.dhall
+        sha256:d29ca03286afa92b7589d09b7a6d98ad8e39d11b255a4b8751f3327b0722fba3
 
 in  Schema.Project::{
     , project = Schema.ProjectIdentity::{
@@ -57,6 +57,16 @@ in  Schema.Project::{
         , path = Some "extensions/upstream-issues"
         , description = Some
             "Upstream-issues extension schema (UpstreamIssuesCatalog, UpstreamIssue, IssueStatus)"
+        }
+      ]
+    , okfBundles =
+      [ Schema.OkfBundle::{
+        , name = "capabilities"
+        , path = "docs/capabilities"
+        , profile = Some "docs/capabilities/profile.dhall"
+        , okfVersion = "0.2"
+        , description = Some
+            "What mori-schema provides today, one concept per capability, with evidence"
         }
       ]
     }
