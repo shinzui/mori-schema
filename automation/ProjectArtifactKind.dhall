@@ -10,6 +10,7 @@
 | RepositoryRefArtifact
 | ShippedExtensionCatalogArtifact
 | DocArtifact
+| OkfProfileArtifact
 | OkfBundleArtifact
 | OkfConceptArtifact
 | OkfEdgeArtifact

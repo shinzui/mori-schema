@@ -14,6 +14,7 @@
 | SeihouTemplate
 | ExtensionCatalog
 | Doc
+| OkfProfile
 | OkfBundle
 | OkfConcept
 | OkfEdge
