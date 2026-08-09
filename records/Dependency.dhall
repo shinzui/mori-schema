@@ -37,5 +37,11 @@ in  < ByName : Text
         , scope : Optional DependencyScope
           -- When this dependency is needed: Regular (default, runtime),
           -- Dev (tooling), Test (test framework only), or Build (build-time only)
+
+        , versionConstraint : Optional Text
+          -- Optional version-constraint metadata in the ecosystem's native
+          -- syntax (for example, Hackage/cabal >=5.3 && <5.4 or npm ^18.2).
+          -- Display and drift-detection metadata only; mori does not parse or
+          -- solve it.
         }
     >

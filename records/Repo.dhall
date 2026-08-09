@@ -6,6 +6,8 @@
 -- have to touch the call site when new optional fields are added
 -- upstream.
 
+let MoriRef = ./MoriRef.dhall
+
 let RepoType =
       { name : Text
         -- Logical name for the repository
@@ -21,6 +23,10 @@ let RepoType =
 
       , localPath : Optional Text
         -- Path on local filesystem (relative to project root)
+
+      , upstream : Optional MoriRef.Type
+        -- The upstream this repo tracks, for projects that vendor several
+        -- upstreams under one identity.
       }
 
 let RepoInput = { name : Text }
@@ -30,6 +36,7 @@ let repoDefault =
       , gitlab = None Text
       , git = None Text
       , localPath = None Text
+      , upstream = None MoriRef.Type
       }
 
 let mkRepo = \(input : RepoInput) -> ((repoDefault // input) : RepoType)

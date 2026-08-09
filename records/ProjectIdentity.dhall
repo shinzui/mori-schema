@@ -11,6 +11,7 @@ let Lifecycle = ../types/Lifecycle.dhall
 let Origin = ../types/Origin.dhall
 let Deprecation = ./Deprecation.dhall
 let ProjectAlias = ./ProjectAlias.dhall
+let MoriRef = ./MoriRef.dhall
 
 let ProjectIdentityType =
       { name : Text
@@ -50,6 +51,11 @@ let ProjectIdentityType =
 
       , origin : Origin
         -- Whether this project is user-owned or third-party
+
+      , upstream : Optional MoriRef.Type
+        -- Canonical reference to the upstream this project tracks. Meaningful
+        -- when origin is Fork or Vendored; ignored otherwise. For a project
+        -- vendoring several upstreams, use the per-repo field.
       }
 
 let ProjectIdentityInput =
@@ -68,6 +74,7 @@ let projectIdentityDefault =
       , domains = [] : List Text
       , owners = [] : List Text
       , origin = Origin.Own
+      , upstream = None MoriRef.Type
       }
 
 let mkProjectIdentity =
