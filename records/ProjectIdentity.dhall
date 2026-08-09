@@ -10,6 +10,7 @@ let PackageType = ../types/PackageType.dhall
 let Lifecycle = ../types/Lifecycle.dhall
 let Origin = ../types/Origin.dhall
 let Deprecation = ./Deprecation.dhall
+let ProjectAlias = ./ProjectAlias.dhall
 
 let ProjectIdentityType =
       { name : Text
@@ -18,6 +19,13 @@ let ProjectIdentityType =
       , namespace : Text
         -- Organization namespace (e.g., "acme")
         -- Used for registry identity: @namespace/name
+
+      , stableId : Optional Text
+        -- Opaque stable identifier that survives renames.
+        -- Mint with `mori identity mint`; letters, digits, and `_` only.
+
+      , aliases : List ProjectAlias.Type
+        -- Former registry identities that resolve to this project.
 
       , type : PackageType
         -- Primary project type
@@ -53,7 +61,9 @@ let ProjectIdentityInput =
       }
 
 let projectIdentityDefault =
-      { description = None Text
+      { stableId = None Text
+      , aliases = [] : List ProjectAlias.Type
+      , description = None Text
       , deprecation = None Deprecation.Type
       , domains = [] : List Text
       , owners = [] : List Text

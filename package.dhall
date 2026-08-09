@@ -88,6 +88,8 @@ let OkfBundle = ./records/OkfBundle.dhall
 
 let ProjectIdentity = ./records/ProjectIdentity.dhall
 
+let ProjectAlias = ./records/ProjectAlias.dhall
+
 let MoriRef = ./records/MoriRef.dhall
 
 let Project = ./Project.dhall
@@ -191,6 +193,7 @@ in  { -- Types
     , SeihouTemplate
     , OkfBundle
     , ProjectIdentity
+    , ProjectAlias
     , MoriRef
       -- Root
     , Project
