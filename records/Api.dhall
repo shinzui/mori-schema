@@ -4,6 +4,7 @@
 let ApiType = ../types/ApiType.dhall
 let ApiDependency = ./ApiDependency.dhall
 let ApiUpdatePolicy = ./ApiUpdatePolicy.dhall
+let MoriRef = ./MoriRef.dhall
 
 let ApiRecordType =
       { name : Text
@@ -18,6 +19,9 @@ let ApiRecordType =
       , owner : Text
         -- Package name that owns this API
 
+      , ownerRef : Optional MoriRef.Type
+        -- Typed companion for owner
+
       , dependencies : List ApiDependency.Type
         -- Packages that depend on this API
 
@@ -30,6 +34,7 @@ let ApiRecordInput =
 
 let apiRecordDefault =
       { dependencies = [] : List ApiDependency.Type
+      , ownerRef = None MoriRef.Type
       , updatePolicy = None ApiUpdatePolicy.Type
       }
 

@@ -3,11 +3,13 @@
 -- (tactical design).
 
 let AggregateSize = ./AggregateSize.dhall
+let MoriRef = ../../records/MoriRef.dhall
 
 let AggregateType =
       { key : Text
       , name : Text
       , context : Optional Text
+      , contextRef : Optional MoriRef.Type
       , description : Optional Text
       , commands : List Text
       , events : List Text
@@ -20,6 +22,7 @@ let AggregateInput = { key : Text, name : Text }
 
 let aggregateDefault =
       { context = None Text
+      , contextRef = None MoriRef.Type
       , description = None Text
       , commands = [] : List Text
       , events = [] : List Text

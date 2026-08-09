@@ -12,6 +12,8 @@ let AdoptionLevel = ./AdoptionLevel.dhall
 
 let Category = ./Category.dhall
 
+let MoriRef = ../../records/MoriRef.dhall
+
 let RecommendationType =
       { language : Language
       , category : Category
@@ -20,6 +22,7 @@ let RecommendationType =
       , reason : Optional Text
       , alternatives : List Text
       , project : Optional Text
+      , projectRef : Optional MoriRef.Type
       }
 
 let RecommendationInput =
@@ -33,6 +36,7 @@ let recommendationDefault =
       { reason = None Text
       , alternatives = [] : List Text
       , project = None Text
+      , projectRef = None MoriRef.Type
       }
 
 let mkRecommendation =

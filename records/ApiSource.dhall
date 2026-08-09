@@ -5,10 +5,15 @@
 -- the owner-side view. ApiSource answers "where does my schema
 -- come from?" while Api answers "who are my consumers?"
 
+let MoriRef = ./MoriRef.dhall
+
 let ApiSourceType =
       { project : Text
         -- Qualified project name (e.g., "tan/mls-service-v2")
         -- Must appear in the project-level dependencies list
+
+      , projectRef : Optional MoriRef.Type
+        -- Typed companion for project
 
       , api : Optional Text
         -- API name within the source project (matches Api.name)
@@ -21,7 +26,11 @@ let ApiSourceType =
 
 let ApiSourceInput = { project : Text }
 
-let apiSourceDefault = { api = None Text, specPath = None Text }
+let apiSourceDefault =
+      { api = None Text
+      , projectRef = None MoriRef.Type
+      , specPath = None Text
+      }
 
 let mkApiSource =
       \(input : ApiSourceInput) ->

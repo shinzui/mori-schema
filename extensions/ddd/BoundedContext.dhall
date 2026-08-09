@@ -1,17 +1,23 @@
 -- BoundedContext.dhall
 -- A bounded context: a boundary within which a model is consistent.
 
+let MoriRef = ../../records/MoriRef.dhall
+
 let BoundedContextType =
       { key : Text
       , name : Text
       , purpose : Optional Text
       , subdomain : Optional Text
+      , subdomainRef : Optional MoriRef.Type
       }
 
 let BoundedContextInput = { key : Text, name : Text }
 
 let boundedContextDefault =
-      { purpose = None Text, subdomain = None Text }
+      { purpose = None Text
+      , subdomain = None Text
+      , subdomainRef = None MoriRef.Type
+      }
 
 let mkBoundedContext =
       \(input : BoundedContextInput) ->

@@ -19,6 +19,7 @@ let DocRef = ./records/DocRef.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
 let OkfBundle = ./records/OkfBundle.dhall
 let ProjectIdentity = ./records/ProjectIdentity.dhall
+let MoriRef = ./records/MoriRef.dhall
 
 let ProjectType =
       { project : ProjectIdentity.Type
@@ -37,6 +38,10 @@ let ProjectType =
         -- For fine-grained control (augmentation, path overrides), declare
         -- dependencies at the Package level using the Dependency union type.
 
+      , dependencyRefs : List MoriRef.Type
+        -- Typed companions for dependencies. The untyped sibling remains for
+        -- compatibility and bare-name dependency resolution.
+
       , apis : List Api.Type
         -- APIs defined by this project
 
@@ -51,6 +56,10 @@ let ProjectType =
 
       , standards : List Text
         -- Names of standard projects this project follows
+
+      , standardRefs : List MoriRef.Type
+        -- Typed companions for standards. The untyped sibling remains for
+        -- compatibility.
 
       , docs : List DocRef.Type
         -- Project-level documentation
@@ -71,11 +80,13 @@ let projectDefault =
       , packages = [] : List Package.Type
       , bundles = [] : List PackageBundle.Type
       , dependencies = [] : List Text
+      , dependencyRefs = [] : List MoriRef.Type
       , apis = [] : List Api.Type
       , agents = [] : List AgentHint.Type
       , skills = [] : List Skill.Type
       , subagents = [] : List Subagent.Type
       , standards = [] : List Text
+      , standardRefs = [] : List MoriRef.Type
       , docs = [] : List DocRef.Type
       , templates = [] : List SeihouTemplate.Type
       , okfBundles = [] : List OkfBundle.Type

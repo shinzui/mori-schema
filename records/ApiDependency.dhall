@@ -2,10 +2,14 @@
 -- A package's relationship to an API
 
 let ApiDependencyRole = ../types/ApiDependencyRole.dhall
+let MoriRef = ./MoriRef.dhall
 
 let ApiDependencyType =
       { package : Text
         -- Name of the package
+
+      , packageRef : Optional MoriRef.Type
+        -- Typed companion for package
 
       , role : ApiDependencyRole
         -- Client or Consumer
@@ -13,7 +17,7 @@ let ApiDependencyType =
 
 let ApiDependencyInput = { package : Text, role : ApiDependencyRole }
 
-let apiDependencyDefault = {=}
+let apiDependencyDefault = { packageRef = None MoriRef.Type }
 
 let mkApiDependency =
       \(input : ApiDependencyInput) ->
