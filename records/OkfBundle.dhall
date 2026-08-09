@@ -6,6 +6,8 @@
 -- a completely separate concept from PackageBundle (which groups Haskell
 -- packages); do not conflate the two.
 
+let ProfileBinding = ./ProfileBinding.dhall
+
 let OkfBundleType =
       { name : Text
         -- Bundle name (unique within the project)
@@ -17,6 +19,10 @@ let OkfBundleType =
         -- Reference (URL or path) to an okf-profiles Dhall profile this
         -- bundle should follow. Optional: omit when there is no profile.
 
+      , profileBinding : Optional ProfileBinding
+        -- Typed local or published binding. When present, it takes
+        -- precedence over the legacy profile field.
+
       , okfVersion : Text
         -- The OKF format version the bundle targets (e.g. "0.1")
 
@@ -26,7 +32,11 @@ let OkfBundleType =
 
 let OkfBundleInput = { name : Text, path : Text, okfVersion : Text }
 
-let okfBundleDefault = { profile = None Text, description = None Text }
+let okfBundleDefault =
+      { profile = None Text
+      , profileBinding = None ProfileBinding
+      , description = None Text
+      }
 
 let mkOkfBundle =
       \(input : OkfBundleInput) ->

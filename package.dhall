@@ -86,6 +86,12 @@ let SeihouTemplate = ./records/SeihouTemplate.dhall
 
 let OkfBundle = ./records/OkfBundle.dhall
 
+let PinnedImport = ./records/PinnedImport.dhall
+
+let OkfProfile = ./records/OkfProfile.dhall
+
+let ProfileBinding = ./records/ProfileBinding.dhall
+
 let ProjectIdentity = ./records/ProjectIdentity.dhall
 
 let ProjectAlias = ./records/ProjectAlias.dhall
@@ -192,6 +198,9 @@ in  { -- Types
     , Subagent
     , SeihouTemplate
     , OkfBundle
+    , PinnedImport
+    , OkfProfile
+    , ProfileBinding
     , ProjectIdentity
     , ProjectAlias
     , MoriRef

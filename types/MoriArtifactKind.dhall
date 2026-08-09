@@ -1,5 +1,5 @@
 -- MoriArtifactKind.dhall
--- Union over the twenty-one artifact kinds carried by a canonical
+-- Union over the twenty-two artifact kinds carried by a canonical
 -- mori:// reference. The order of the arms is part of the public
 -- contract: Haskell mirrors derive Bounded/Enum and rely on it, so new
 -- kinds are APPENDED and existing arms are never reordered or removed.
@@ -36,6 +36,7 @@
 -- DddFlow            ddd/flows            ddd-flow
 -- DddGlossaryTerm    ddd/glossary         ddd-term
 -- DddCollaborator    ddd/collaborators    ddd-collaborator
+-- OkfProfile         profiles             profile
 --
 -- Not every segment pluralises: cookbook, okf, radar and glossary are
 -- mass nouns. The seven ddd/* kinds take a two-segment path; the bare
@@ -69,4 +70,5 @@
 | DddFlow
 | DddGlossaryTerm
 | DddCollaborator
+| OkfProfile
 >

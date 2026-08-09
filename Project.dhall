@@ -18,6 +18,7 @@ let Subagent = ./records/Subagent.dhall
 let DocRef = ./records/DocRef.dhall
 let SeihouTemplate = ./records/SeihouTemplate.dhall
 let OkfBundle = ./records/OkfBundle.dhall
+let OkfProfile = ./records/OkfProfile.dhall
 let ProjectIdentity = ./records/ProjectIdentity.dhall
 let MoriRef = ./records/MoriRef.dhall
 
@@ -71,6 +72,10 @@ let ProjectType =
       , okfBundles : List OkfBundle.Type
         -- OKF knowledge bundles owned by this project. Distinct from
         -- `bundles` (PackageBundle): these are Markdown knowledge bundles.
+
+      , profiles : List OkfProfile.Type
+        -- OKF profiles published by this project and addressable through
+        -- mori://<namespace>/<name>/profiles/<profile-name>.
       }
 
 let ProjectInput = { project : ProjectIdentity.Type }
@@ -90,6 +95,7 @@ let projectDefault =
       , docs = [] : List DocRef.Type
       , templates = [] : List SeihouTemplate.Type
       , okfBundles = [] : List OkfBundle.Type
+      , profiles = [] : List OkfProfile.Type
       }
 
 let mkProject =
