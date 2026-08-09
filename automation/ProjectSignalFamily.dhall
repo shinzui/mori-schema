@@ -1,5 +1,6 @@
 -- Stable semantic families shared by Project root and artifact events.
 < Lifecycle
+| ProjectIdentity
 | Metadata
 | Description
 | Repository
