@@ -26,4 +26,5 @@
 | DddMappingArtifact
 | DddFlowArtifact
 | DddGlossaryArtifact
+| DeclarativeExtensionCatalogArtifact
 >
