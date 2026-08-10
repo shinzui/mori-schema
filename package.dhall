@@ -122,6 +122,10 @@ let SignalConsent = ./automation/SignalConsent.dhall
 
 let SignalBounds = ./automation/SignalBounds.dhall
 
+let JoinLeg = ./automation/JoinLeg.dhall
+
+let JoinDef = ./automation/JoinDef.dhall
+
 let ProjectSelector = ./automation/ProjectSelector.dhall
 
 let ProjectSignalAggregate = ./automation/ProjectSignalAggregate.dhall
@@ -224,6 +228,8 @@ in  { -- Types
     , SignalPayloadPredicate
     , SignalConsent
     , SignalBounds
+    , JoinLeg
+    , JoinDef
     , ProjectSelector
     , ProjectSignalAggregate
     , ProjectSignalFamily

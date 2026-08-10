@@ -16,6 +16,8 @@ let SignalConsent = ./SignalConsent.dhall
 
 let SignalBounds = ./SignalBounds.dhall
 
+let JoinDef = ./JoinDef.dhall
+
 let AutomationType =
       { events : List EventSelector
         -- Event selectors that define which events to watch
@@ -37,6 +39,9 @@ let AutomationType =
 
       , signalBounds : Optional SignalBounds.Type
         -- Optional fan-out and chain-depth limits for emitted signals
+
+      , joins : List JoinDef.Type
+        -- Target-side fan-in rules over independently delivered signals
       }
 
 let AutomationInput = {}
@@ -48,6 +53,7 @@ let automationDefault =
       , queued = False
       , consent = None SignalConsent.Type
       , signalBounds = None SignalBounds.Type
+      , joins = [] : List JoinDef.Type
       }
 
 let mkAutomation =
