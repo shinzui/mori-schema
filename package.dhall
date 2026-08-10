@@ -98,6 +98,12 @@ let ProjectAlias = ./records/ProjectAlias.dhall
 
 let MoriRef = ./records/MoriRef.dhall
 
+let ExtensionKindDecl = ./records/ExtensionKindDecl.dhall
+
+let ExtensionSchemaPin = ./records/ExtensionSchemaPin.dhall
+
+let ExtensionManifest = ./records/ExtensionManifest.dhall
+
 let Project = ./Project.dhall
 
 let UserConfig = ./UserConfig.dhall
@@ -204,6 +210,9 @@ in  { -- Types
     , ProjectIdentity
     , ProjectAlias
     , MoriRef
+    , ExtensionKindDecl
+    , ExtensionSchemaPin
+    , ExtensionManifest
       -- Root
     , Project
     , UserConfig
