@@ -4,12 +4,13 @@
 -- Usage in a mori/ddd.dhall:
 --   let Ddd = https://raw.githubusercontent.com/.../extensions/ddd/package.dhall
 --   in Ddd.DddModel::{ glossary = [ Ddd.GlossaryTerm::{ … } ] }
-
 let DddModel = ./DddModel.dhall
 
 let Subdomain = ./Subdomain.dhall
 
 let BoundedContext = ./BoundedContext.dhall
+
+let ContextStatus = ./ContextStatus.dhall
 
 let Aggregate = ./Aggregate.dhall
 
@@ -40,6 +41,7 @@ let AggregateSize = ./AggregateSize.dhall
 in  { DddModel
     , Subdomain
     , BoundedContext
+    , ContextStatus
     , Aggregate
     , ContextMapping
     , MessageFlow
