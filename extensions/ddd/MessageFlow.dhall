@@ -1,6 +1,5 @@
 -- MessageFlow.dhall
 -- A named flow of messages (commands/events/queries) across contexts.
-
 let FlowStep = ./FlowStep.dhall
 
 let MessageFlowType =
@@ -17,7 +16,7 @@ let messageFlowDefault =
 
 let mkMessageFlow =
       \(input : MessageFlowInput) ->
-        ((messageFlowDefault // input) : MessageFlowType)
+        messageFlowDefault // input : MessageFlowType
 
 in  { Type = MessageFlowType
     , Input = MessageFlowInput

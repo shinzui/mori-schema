@@ -1,6 +1,5 @@
 -- FlowStep.dhall
 -- A single ordered step in a message flow.
-
 let MessageKind = ./MessageKind.dhall
 
 let FlowStepType =
@@ -23,7 +22,7 @@ let FlowStepInput =
 let flowStepDefault = { contents = None Text }
 
 let mkFlowStep =
-      \(input : FlowStepInput) -> ((flowStepDefault // input) : FlowStepType)
+      \(input : FlowStepInput) -> flowStepDefault // input : FlowStepType
 
 in  { Type = FlowStepType
     , Input = FlowStepInput

@@ -38,6 +38,22 @@ let WardleyStage = ./WardleyStage.dhall
 
 let AggregateSize = ./AggregateSize.dhall
 
+let CoordinationMessage = ./CoordinationMessage.dhall
+
+let CoordinationTimer = ./CoordinationTimer.dhall
+
+let WorkflowJournal = ./WorkflowJournal.dhall
+
+let DurableWorkflowStep = ./DurableWorkflowStep.dhall
+
+let WorkflowExternalWait = ./WorkflowExternalWait.dhall
+
+let Reactor = ./Reactor.dhall
+
+let ProcessManager = ./ProcessManager.dhall
+
+let DurableWorkflow = ./DurableWorkflow.dhall
+
 in  { DddModel
     , Subdomain
     , BoundedContext
@@ -55,4 +71,12 @@ in  { DddModel
     , MessageKind
     , WardleyStage
     , AggregateSize
+    , CoordinationMessage
+    , CoordinationTimer
+    , WorkflowJournal
+    , DurableWorkflowStep
+    , WorkflowExternalWait
+    , Reactor
+    , ProcessManager
+    , DurableWorkflow
     }

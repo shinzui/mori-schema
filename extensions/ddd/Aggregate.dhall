@@ -1,8 +1,8 @@
 -- Aggregate.dhall
 -- An aggregate: a cluster of entities with a consistency boundary
 -- (tactical design).
-
 let AggregateSize = ./AggregateSize.dhall
+
 let MoriRef = ../../records/MoriRef.dhall
 
 let AggregateType =
@@ -32,7 +32,7 @@ let aggregateDefault =
       }
 
 let mkAggregate =
-      \(input : AggregateInput) -> ((aggregateDefault // input) : AggregateType)
+      \(input : AggregateInput) -> aggregateDefault // input : AggregateType
 
 in  { Type = AggregateType
     , Input = AggregateInput

@@ -1,5 +1,5 @@
 -- MoriArtifactKind.dhall
--- Union over the twenty-two artifact kinds carried by a canonical
+-- Union over the twenty-five artifact kinds carried by a canonical
 -- mori:// reference. The order of the arms is part of the public
 -- contract: Haskell mirrors derive Bounded/Enum and rely on it, so new
 -- kinds are APPENDED and existing arms are never reordered or removed.
@@ -37,9 +37,12 @@
 -- DddGlossaryTerm    ddd/glossary         ddd-term
 -- DddCollaborator    ddd/collaborators    ddd-collaborator
 -- OkfProfile         profiles             profile
+-- DddReactor         ddd/reactors         ddd-reactor
+-- DddProcessManager  ddd/process-managers ddd-process-manager
+-- DddDurableWorkflow ddd/durable-workflows ddd-durable-workflow
 --
 -- Not every segment pluralises: cookbook, okf, radar and glossary are
--- mass nouns. The seven ddd/* kinds take a two-segment path; the bare
+-- mass nouns. The ten ddd/* kinds take a two-segment path; the bare
 -- segment "ddd" is not a kind and does not parse.
 --
 -- Three kinds accept a nested sub-key that this type cannot express,
@@ -48,7 +51,6 @@
 -- (checklists/<key>/steps/<step>) and a DDD flow step
 -- (ddd/flows/<key>/steps/<n>). Those references travel as canonical Text
 -- in a DocLocation.Canonical arm rather than as a typed MoriRef.
-
 < Doc
 | Package
 | Repo
@@ -71,4 +73,7 @@
 | DddGlossaryTerm
 | DddCollaborator
 | OkfProfile
+| DddReactor
+| DddProcessManager
+| DddDurableWorkflow
 >

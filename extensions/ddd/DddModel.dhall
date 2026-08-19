@@ -2,7 +2,6 @@
 -- Root type for the ddd extension. Every concern is an optional or
 -- empty-defaulting list, so a team records only what it cares about:
 -- `Ddd.DddModel::{=}` is a valid empty model.
-
 let Subdomain = ./Subdomain.dhall
 
 let BoundedContext = ./BoundedContext.dhall
@@ -19,6 +18,12 @@ let Verification = ./Verification.dhall
 
 let Collaborator = ./Collaborator.dhall
 
+let Reactor = ./Reactor.dhall
+
+let ProcessManager = ./ProcessManager.dhall
+
+let DurableWorkflow = ./DurableWorkflow.dhall
+
 let DddModelType =
       { domain : Optional Text
       , subdomains : List Subdomain.Type
@@ -29,6 +34,9 @@ let DddModelType =
       , glossary : List GlossaryTerm.Type
       , verification : Optional Verification.Type
       , collaborators : List Collaborator.Type
+      , reactors : List Reactor.Type
+      , processManagers : List ProcessManager.Type
+      , durableWorkflows : List DurableWorkflow.Type
       }
 
 let DddModelInput = {}
@@ -43,10 +51,13 @@ let dddModelDefault =
       , glossary = [] : List GlossaryTerm.Type
       , verification = None Verification.Type
       , collaborators = [] : List Collaborator.Type
+      , reactors = [] : List Reactor.Type
+      , processManagers = [] : List ProcessManager.Type
+      , durableWorkflows = [] : List DurableWorkflow.Type
       }
 
 let mkDddModel =
-      \(input : DddModelInput) -> ((dddModelDefault // input) : DddModelType)
+      \(input : DddModelInput) -> dddModelDefault // input : DddModelType
 
 in  { Type = DddModelType
     , Input = DddModelInput

@@ -1,7 +1,6 @@
 -- Verification.dhall
 -- Model-level review/verification metrics: when the model was last
 -- reviewed, what fraction of aggregates have tests, and free-text notes.
-
 let VerificationType =
       { lastReviewed : Optional Text
       , coveragePercent : Optional Natural
@@ -18,7 +17,7 @@ let verificationDefault =
 
 let mkVerification =
       \(input : VerificationInput) ->
-        ((verificationDefault // input) : VerificationType)
+        verificationDefault // input : VerificationType
 
 in  { Type = VerificationType
     , Input = VerificationInput

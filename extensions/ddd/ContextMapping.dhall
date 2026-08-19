@@ -1,6 +1,5 @@
 -- ContextMapping.dhall
 -- A relationship between two bounded contexts (a context map edge).
-
 let RelationshipPattern = ./RelationshipPattern.dhall
 
 let TeamRelationship = ./TeamRelationship.dhall
@@ -29,7 +28,7 @@ let contextMappingDefault =
 
 let mkContextMapping =
       \(input : ContextMappingInput) ->
-        ((contextMappingDefault // input) : ContextMappingType)
+        contextMappingDefault // input : ContextMappingType
 
 in  { Type = ContextMappingType
     , Input = ContextMappingInput
