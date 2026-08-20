@@ -30,4 +30,7 @@
 | DddMapping
 | DddFlow
 | DddGlossary
+| DddReactor
+| DddProcessManager
+| DddDurableWorkflow
 >

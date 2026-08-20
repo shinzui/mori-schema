@@ -27,4 +27,7 @@
 | DddFlowArtifact
 | DddGlossaryArtifact
 | DeclarativeExtensionCatalogArtifact
+| DddReactorArtifact
+| DddProcessManagerArtifact
+| DddDurableWorkflowArtifact
 >
