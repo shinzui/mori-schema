@@ -33,4 +33,5 @@
 | DddReactor
 | DddProcessManager
 | DddDurableWorkflow
+| Release
 >
