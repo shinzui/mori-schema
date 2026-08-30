@@ -122,6 +122,8 @@ let SignalConsent = ./automation/SignalConsent.dhall
 
 let SignalBounds = ./automation/SignalBounds.dhall
 
+let SignalCascade = ./automation/SignalCascade.dhall
+
 let JoinLeg = ./automation/JoinLeg.dhall
 
 let JoinDef = ./automation/JoinDef.dhall
@@ -228,6 +230,7 @@ in  { -- Types
     , SignalPayloadPredicate
     , SignalConsent
     , SignalBounds
+    , SignalCascade
     , JoinLeg
     , JoinDef
     , ProjectSelector

@@ -5,6 +5,8 @@
 -- `Schema.ReactionAction.Signal Schema.SignalAction::{ signalType = "..." }`
 -- and omit targets/payload/payloadJson.
 
+let SignalCascade = ./SignalCascade.dhall
+
 let SignalActionType =
       { signalType : Text
         -- Signal type tag dispatched to downstream projects
@@ -17,6 +19,9 @@ let SignalActionType =
 
       , payloadJson : Optional Text
         -- Optional structured JSON payload, validated by Mori at config load
+
+      , cascade : Optional SignalCascade.Type
+        -- Explicit dependency-cascade authorization and traversal policy
       }
 
 let SignalActionInput = { signalType : Text }
@@ -25,6 +30,7 @@ let signalActionDefault =
       { targets = [] : List Text
       , payload = [] : List { mapKey : Text, mapValue : Text }
       , payloadJson = None Text
+      , cascade = None SignalCascade.Type
       }
 
 let mkSignalAction =
