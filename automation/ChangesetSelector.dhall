@@ -9,6 +9,9 @@ let ChangesetSelectorType =
       { name : Text
         -- Unique selector name for referencing in reactions
 
+      , pathRegexes : List Text
+        -- Whole-input POSIX extended regex alternatives (empty = unrestricted)
+
       , paths : List Text
         -- Glob patterns for touched file paths
 
@@ -25,7 +28,8 @@ let ChangesetSelectorType =
 let ChangesetSelectorInput = { name : Text }
 
 let changesetSelectorDefault =
-      { paths = [] : List Text
+      { pathRegexes = [] : List Text
+      , paths = [] : List Text
       , branches = [] : List Text
       , messagePatterns = [] : List Text
       , trailerPatterns = [] : List { mapKey : Text, mapValue : Text }

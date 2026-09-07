@@ -9,6 +9,9 @@ let RefSelectorType =
       { name : Text
         -- Unique selector name for referencing in reactions
 
+      , refRegexes : List Text
+        -- Whole-input POSIX extended regex alternatives (empty = unrestricted)
+
       , refPatterns : List Text
         -- Ref name patterns (e.g., "main", "release/*")
 
@@ -19,7 +22,8 @@ let RefSelectorType =
 let RefSelectorInput = { name : Text }
 
 let refSelectorDefault =
-      { refPatterns = [] : List Text, kinds = [] : List Text }
+      { refRegexes = [] : List Text
+      , refPatterns = [] : List Text, kinds = [] : List Text }
 
 let mkRefSelector =
       \(input : RefSelectorInput) -> ((refSelectorDefault // input) : RefSelectorType)
