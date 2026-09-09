@@ -34,4 +34,5 @@
 | DddProcessManager
 | DddDurableWorkflow
 | Release
+| AuditReceipt
 >
