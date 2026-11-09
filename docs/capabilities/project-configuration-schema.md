@@ -89,3 +89,5 @@ this base.
   contract but drift between the two is not mechanically checked here.
 </content>
 </invoke>
+
+OKF bundles opt into documentation discovery with `Schema.OkfBundle::{ name = "guides", path = "docs", okfVersion = "0.2", isDocumentation = True }`. Omitting `isDocumentation` or setting it to `False` keeps the bundle out of registry docs; all bundles remain discoverable through registry bundles.
