@@ -35,4 +35,6 @@
 | DddDurableWorkflow
 | Release
 | AuditReceipt
+| KeiroService
+| KeiroNode
 >

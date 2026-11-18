@@ -30,4 +30,6 @@
 | DddReactorArtifact
 | DddProcessManagerArtifact
 | DddDurableWorkflowArtifact
+| KeiroServiceArtifact
+| KeiroNodeArtifact
 >
