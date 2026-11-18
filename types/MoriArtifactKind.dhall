@@ -1,5 +1,5 @@
 -- MoriArtifactKind.dhall
--- Union over the twenty-five artifact kinds carried by a canonical
+-- Union over the forty-two artifact kinds carried by a canonical
 -- mori:// reference. The order of the arms is part of the public
 -- contract: Haskell mirrors derive Bounded/Enum and rely on it, so new
 -- kinds are APPENDED and existing arms are never reordered or removed.
@@ -40,10 +40,30 @@
 -- DddReactor         ddd/reactors         ddd-reactor
 -- DddProcessManager  ddd/process-managers ddd-process-manager
 -- DddDurableWorkflow ddd/durable-workflows ddd-durable-workflow
+-- KeiroService            keiro/services             keiro-service
+-- KeiroAggregate          keiro/aggregates           keiro-aggregate
+-- KeiroProcess            keiro/processes            keiro-process
+-- KeiroWorkflow           keiro/workflows            keiro-workflow
+-- KeiroRouter             keiro/routers              keiro-router
+-- KeiroContract           keiro/contracts            keiro-contract
+-- KeiroIntake             keiro/intakes              keiro-intake
+-- KeiroEmit               keiro/emits                keiro-emit
+-- KeiroWorkqueue          keiro/workqueues           keiro-workqueue
+-- KeiroDispatch           keiro/dispatches           keiro-dispatch
+-- KeiroReadModel          keiro/read-models          keiro-read-model
+-- KeiroOperation          keiro/operations           keiro-operation
+-- KeiroProjectionTarget   keiro/projection-targets   keiro-projection-target
+-- KeiroRebuildGroup       keiro/rebuild-groups       keiro-rebuild-group
+-- KeiroProjectionOwner    keiro/projection-owners    keiro-projection-owner
+-- KeiroProjectionRevision keiro/projection-revisions keiro-projection-revision
+-- KeiroExternalRead       keiro/external-reads       keiro-external-read
 --
 -- Not every segment pluralises: cookbook, okf, radar and glossary are
 -- mass nouns. The ten ddd/* kinds take a two-segment path; the bare
 -- segment "ddd" is not a kind and does not parse.
+-- The seventeen keiro/* kinds also take a two-segment path. Their key is
+-- <service> for KeiroService and <service>/<name> for every other kind,
+-- because one repository may declare several keiro services.
 --
 -- Three kinds accept a nested sub-key that this type cannot express,
 -- because MoriRef has no sub-key field: an OKF concept
@@ -76,4 +96,21 @@
 | DddReactor
 | DddProcessManager
 | DddDurableWorkflow
+| KeiroService
+| KeiroAggregate
+| KeiroProcess
+| KeiroWorkflow
+| KeiroRouter
+| KeiroContract
+| KeiroIntake
+| KeiroEmit
+| KeiroWorkqueue
+| KeiroDispatch
+| KeiroReadModel
+| KeiroOperation
+| KeiroProjectionTarget
+| KeiroRebuildGroup
+| KeiroProjectionOwner
+| KeiroProjectionRevision
+| KeiroExternalRead
 >
